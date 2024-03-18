@@ -1,5 +1,32 @@
-<link rel="stylesheet" href="{{ url_for('static', path='/tasks/tasks_list.css') }}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='/tasks/css/style.css') }}">
+    <title>Modern Page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="search-box">
+            <input type="text" placeholder="Search ..." />
+        </div>
+        <div class="boxes">
+            {% for task in tasks %}
+                <div class="box {{ task.priority }}">
+                    <h2>{{ task.title }}</h2>
+                    <div class="dropdown">
+                        <p>{{ task.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="page-navigator">
+            <!-- Pagination numbers will go here -->
+            1 2 3 ... 10
+        </div>
+    </div>
+    <script src="{{ url_for('static', path='/tasks/js/scripts.js') }}"></script>
+</body>
+</html>
 
-{% for task in tasks %}
-<h2>{{ task.title }}</h2>
-{% endfor %}
