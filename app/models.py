@@ -10,6 +10,9 @@ class Priority(PyEnum):
     HIGH = 2
     CRITICAL = 3
 
+    def __str__(self):
+        return str(self.name)
+    
 
 class Task(Base):
     __tablename__ = "tasks"
