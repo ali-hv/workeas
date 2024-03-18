@@ -1,14 +1,19 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 from datetime import datetime
-from typing import Optional
 
 from .models import Priority
 
 class TaskBase(BaseModel):
     title: str
     description: str
-    date: Optional[datetime] = datetime.now()
+    date: datetime
     priority: Priority
+
+    @validator('date', pre=True)
+    def remove_seconds_microseconds(cls, v):
+        if isinstance(v, datetime):
+            return v.replace(second=0, microsecond=0)
+        return v
 
 
 class TaskCreate(TaskBase):

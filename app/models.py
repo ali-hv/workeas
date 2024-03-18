@@ -1,6 +1,5 @@
-from sqlalchemy import Column, String, Integer, DateTime, Enum, func
+from sqlalchemy import Column, String, Integer, DateTime, Enum
 from enum import Enum as PyEnum
-from datetime import datetime
 
 from .database import Base
 
@@ -18,5 +17,5 @@ class Task(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String, index=True)
     description = Column(String, index=True)
-    date = Column(DateTime, default=datetime.now())
+    date = Column(DateTime)
     priority = Column(Enum(Priority))
