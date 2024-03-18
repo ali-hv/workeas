@@ -1,0 +1,5 @@
+<link rel="stylesheet" href="{{ url_for('static', path='/tasks/tasks_list.css') }}">
+
+{% for task in tasks %}
+<h2>{{ task.title }}</h2>
+{% endfor %}
