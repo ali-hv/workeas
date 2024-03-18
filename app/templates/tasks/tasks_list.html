@@ -9,11 +9,11 @@
 <body>
     <div class="container">
         <div class="search-box">
-            <input type="text" placeholder="Search ..." />
+            <input type="text" id="searchInput" placeholder="Search ..." />
         </div>
-        <div class="boxes">
+        <div class="tasks-list">
             {% for task in tasks %}
-                <div class="box {{ task.priority }}">
+                <div class="task-box {{ task.priority }}">
                     <h2>{{ task.title }}</h2>
                     <div class="dropdown">
                         <p>{{ task.description }}</p>

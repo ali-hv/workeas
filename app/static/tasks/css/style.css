@@ -22,11 +22,11 @@ body {
     transition: all 0.3s ease;
 }
 
-.boxes {
+.tasks-list {
     margin-bottom: 20px;
 }
 
-.box {
+.task-box {
     border: 1px solid #ccc;
     color: rgb(255, 255, 255);
     border-radius: 8px;
@@ -52,7 +52,7 @@ body {
     background-color: rgb(247, 60, 60);
 }
 
-.box:hover {
+.task-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -72,7 +72,7 @@ body {
 
 /* Responsive styles */
 @media only screen and (max-width: 480px) {
-    .box {
+    .task-box {
         width: 100%;
     }
 
