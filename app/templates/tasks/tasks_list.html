@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', path='/tasks/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <title>Modern Page</title>
 </head>
 <body>
@@ -15,7 +16,11 @@
             {% for task in tasks %}
                 <div class="task-box {{ task.priority }}">
                     <h2>{{ task.title }}</h2>
-                    <h3 dir="rtl" class="task-date">{{ task.date }}</h3>
+                    <div class="box-options">
+                        <button><i class="bi bi-pencil-square"></i></button>
+                        <button><i class="bi bi-trash"></i></button>
+                    </div>
+                    <!-- <h3 dir="rtl" class="task-date">{{ task.date }}</h3> -->
                     <div class="dropdown">
                         <p>{{ task.description }}</p>
                     </div>
