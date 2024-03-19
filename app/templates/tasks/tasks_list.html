@@ -15,6 +15,7 @@
             {% for task in tasks %}
                 <div class="task-box {{ task.priority }}">
                     <h2>{{ task.title }}</h2>
+                    <h3 dir="rtl" class="task-date">{{ task.date }}</h3>
                     <div class="dropdown">
                         <p>{{ task.description }}</p>
                     </div>
