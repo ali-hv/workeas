@@ -16,10 +16,11 @@
             {% for task in tasks %}
                 <div class="task-box {{ task.priority }}">
                     <h2>{{ task.title }}</h2>
-                    <div class="box-options">
+                    <div class="task-options">
                         <button><i class="bi bi-pencil-square"></i></button>
-                        <button><i class="bi bi-trash"></i></button>
+                        <a href="{{ url_for('delete_task', task_id=task.id) }}"><button><i class="bi bi-trash"></i></button></a>
                     </div>
+                    <h3 class="task-date" dir="rtl">{{ task.date }}</h3>
                     <!-- <h3 dir="rtl" class="task-date">{{ task.date }}</h3> -->
                     <div class="dropdown">
                         <p>{{ task.description }}</p>
