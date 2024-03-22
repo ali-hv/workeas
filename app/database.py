@@ -7,7 +7,7 @@ import os
 load_dotenv()
 
 # Setup SQLAlchemy
-SQLALCHEMY_DATABASE_URL = os.environ.get('DATABASE_URL', None)
+SQLALCHEMY_DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///./db.sqlite3')
 
 # Create engine and SessionLocal class
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
