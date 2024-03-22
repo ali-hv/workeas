@@ -48,3 +48,10 @@ Finally, run the app(run this command in the root directory of the project):
 ```shell
 python3 runserver.py
 ```
+
+## Change Timezone
+Workeas currently just supports ```UTC``` and ```Asia/Tehran``` timezones. The default timezone is ```UTC```,
+to change it, open settings.py file in the ```app``` directory and replace ```UTC``` with ```Asia/Tehran```:
+```python
+timezone = "Asia/Tehran"
+```
