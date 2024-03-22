@@ -3,6 +3,6 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
-timezone = 'Asia/Tehran'
+timezone = 'UTC'
 
 templates = Jinja2Templates(directory="app/templates")
