@@ -20,7 +20,7 @@
                         <button><i class="bi bi-pencil-square"></i></button>
                         <a href="{{ url_for('delete_task', task_id=task.id) }}"><button><i class="bi bi-trash"></i></button></a>
                     </div>
-                    <h3 class="task-date" dir="rtl">{{ task.date }}</h3>
+                    <h3 class="task-date" dir="{{ datetime_dir }}" style="text-align: left;">{{ task.date }}</h3>
                     <!-- <h3 dir="rtl" class="task-date">{{ task.date }}</h3> -->
                     <div class="dropdown">
                         <p>{{ task.description }}</p>
@@ -29,8 +29,13 @@
             {% endfor %}
         </div>
         <div class="page-navigator">
-            <!-- Pagination numbers will go here -->
-            1 2 3 ... 10
+            <button class="prev">Prev</button>
+
+            <button class="page">1</button>
+            <button class="page">2</button>
+            <button class="page">3</button>
+
+            <button class="next">Next</button>
         </div>
     </div>
     <script src="{{ url_for('static', path='/tasks/js/scripts.js') }}"></script>

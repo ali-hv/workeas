@@ -16,8 +16,12 @@ def get_tasks(request: Request, priority: Optional[int] = None, date: Optional[d
     
     if timezone == 'Asia/Tehran':
         tasks = convert_datetime.to_jalali(tasks)
+        datetime_dir = "rtl"
+    else:
+        tasks = convert_datetime.to_gregorian(tasks)
+        datetime_dir = "ltr"
     
-    return templates.TemplateResponse("tasks/tasks_list.html", {"request": request, "tasks": tasks})
+    return templates.TemplateResponse("tasks/tasks_list.html", {"request": request, "tasks": tasks, "datetime_dir": datetime_dir})
 
 
 @router.get("/tasks/add", response_class=HTMLResponse)

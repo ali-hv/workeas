@@ -94,6 +94,26 @@ body {
     text-align: center;
 }
 
+.page-navigator button {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.page-navigator button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Previous and Next button styles */
+.page-navigator .prev,
+.page-navigator .next {
+    margin: 0 10px;
+}
+
 /* Responsive styles */
 @media only screen and (max-width: 480px) {
     .task-box {
