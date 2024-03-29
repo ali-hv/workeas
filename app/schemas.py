@@ -20,5 +20,9 @@ class TaskCreate(TaskBase):
     pass
 
 
+class TaskEdit(TaskBase):
+    pass
+
+
 class Task(TaskBase):
     id: int
