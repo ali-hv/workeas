@@ -12,11 +12,11 @@
         <form method="post">
             <div class="form-group">
                 <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
+                <input type="text" id="title" name="title" value="{{ task.title }}" required>
             </div>
             <div class="form-group">
                 <label for="description">Description:</label>
-                <input type="text" id="description" name="description" required>
+                <input type="text" id="description" name="description" value="{{ task.description }}" required>
             </div>
             <div class="form-group">
                 <label for="date">Date:</label>
@@ -36,3 +36,45 @@
     </div>
 </body>
 </html>
+
+<script>
+    console.log("{{ task.date }}");
+    // Get the value of the 'about' attribute
+    var taskPriority = "{{ task.priority }}";
+    // Find the <select> element
+    var prioritySelect = document.getElementById('priority');
+    // Loop through the options
+    for (var i = 0; i < prioritySelect.options.length; i++) {
+        // Check if the value of the option matches the 'about' value
+        if (prioritySelect.options[i].value === taskPriority) {
+            // Set the 'selected' attribute to true for the matched option
+            prioritySelect.options[i].selected = true;
+            // Break the loop since we found the matching option
+            break;
+        }
+    }
+
+    // set task date as default value for date field
+    {#function toLocalISOString(date) {#}
+    {#  const localDate = new Date();#}
+    {#  const taskDateTime = "{{ task.date }}".split(" ");#}
+    {#  const task_date = taskDateTime[0].split("-");#}
+    {#  const task_time = taskDateTime[1].split(":");#}
+    {##}
+    {#  localDate.setFullYear(Number(task_date[0]));#}
+    {#  localDate.setMonth(Number(task_date[1])-1);#}
+    {#  localDate.setDate(Number(task_date[2])+1);#}
+    {#  localDate.setHours(Number(task_time[0]));#}
+    {#  localDate.setMinutes(Number(task_time[1]));#}
+    {#  localDate.setMilliseconds(null);#}
+    {#  localDate.setSeconds(null);#}
+    {##}
+    {#  console.log(task_date[1], task_date[2])#}
+    {##}
+    {#  return localDate.toISOString().slice(0, -1);#}
+    //}
+    {##}
+    {#window.addEventListener("load", () => {#}
+    {#  document.getElementById("date").value = toLocalISOString(new Date());#}
+    //});
+</script>

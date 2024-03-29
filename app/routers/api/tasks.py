@@ -68,7 +68,10 @@ def api_edit_task(task_id: int, task: schemas.TaskEdit, db: Session = Depends(ge
 
 @router.delete('/api/tasks/delete/{task_id}')
 def api_delete_task(task_id: int, db: Session = Depends(get_db)):
-    db.query(models.Task).filter(models.Task.id == task_id).delete()
+    task = db.query(models.Task).filter(models.Task.id == task_id)
+    if not task.first():
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Task not found")
+    task.delete()
     db.commit()
 
     return {"status": "success", "message": "Task deleted"}
