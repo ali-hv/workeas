@@ -1,7 +1,7 @@
 from sqlalchemy import Column, String, Integer, DateTime, Enum
 from enum import Enum as PyEnum
 
-from app.config.database import Base
+from config.database import Base
 
 
 class Priority(PyEnum):

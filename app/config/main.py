@@ -3,10 +3,10 @@ from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI
 
 from .database import engine
-from app.tasks import models
+from tasks import models
 
-from app.tasks.routers.client import tasks as client_tasks
-from app.tasks.routers.api import tasks as api_tasks
+from tasks.routers import client as tasks_client
+from tasks.routers import api as tasks_api
 
 # Create fastapi app
 app = FastAPI(
@@ -15,11 +15,11 @@ app = FastAPI(
     version="0.0.1",)
 
 # Include routers
-app.include_router(api_tasks.router)
-app.include_router(client_tasks.router)
+app.include_router(tasks_api.router)
+app.include_router(tasks_client.router)
 
 # Include static files
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 # Redirect root path to docs path

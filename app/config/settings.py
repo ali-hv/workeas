@@ -10,7 +10,7 @@ router = APIRouter()
 
 timezone = 'UTC'
 
-templates = Jinja2Templates(directory="app/templates")
+templates = Jinja2Templates(directory="templates")
 
 # JWT authentication
 SECRET_KEY = os.environ.get('SECRET_KEY', 'secret-key')

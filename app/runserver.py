@@ -1,4 +1,4 @@
-from app.config.main import app
+from config.main import app
 
 if __name__ == "__main__":
     import uvicorn
