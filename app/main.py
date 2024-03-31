@@ -3,10 +3,10 @@ from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI
 
 from .database import engine
-from . import models
+from .tasks import models
 
-from .routers.client import tasks as client_tasks
-from .routers.api import tasks as api_tasks
+from .tasks.routers.client import tasks as client_tasks
+from .tasks.routers.api import tasks as api_tasks
 
 # Create fastapi app
 app = FastAPI(

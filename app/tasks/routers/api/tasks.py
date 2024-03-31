@@ -6,7 +6,7 @@ from typing import Optional
 from starlette import status
 
 from app.database import get_db
-from app import models, schemas
+from app.tasks import models, schemas
 from app.settings import router
 
 

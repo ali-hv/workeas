@@ -4,11 +4,11 @@ from sqlalchemy.orm import Session
 from datetime import datetime
 from typing import Optional
 
-from app.routers.api.tasks import api_get_tasks, api_delete_task, api_add_task, api_edit_task
+from app.tasks.routers.api.tasks import api_get_tasks, api_delete_task, api_add_task, api_edit_task
 from app.settings import templates, router, timezone
 from app.utils import convert_datetime
 from app.database import get_db
-from app import models
+from app.tasks import models
 
 
 @router.get("/tasks/", response_class=HTMLResponse)
