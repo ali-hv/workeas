@@ -5,9 +5,9 @@ from datetime import datetime
 from typing import Optional
 
 from app.tasks.routers.api.tasks import api_get_tasks, api_delete_task, api_add_task, api_edit_task
-from app.settings import templates, router, timezone
+from app.config.settings import templates, router, timezone
 from app.utils import convert_datetime
-from app.database import get_db
+from app.config.database import get_db
 from app.tasks import models
 
 

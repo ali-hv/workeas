@@ -5,9 +5,9 @@ from typing import Optional
 
 from starlette import status
 
-from app.database import get_db
+from app.config.database import get_db
 from app.tasks import models, schemas
-from app.settings import router
+from app.config.settings import router
 
 
 @router.get("/api/tasks/")
